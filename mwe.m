@@ -19,7 +19,24 @@ subplot(3,1,3)
 imagesc(m); colorbar; colormap(hot(100));
 
 mean(m(4,:))
+% 0.8429
 median(m(4,:))
-
+% 0.9605
 
 chacovolmean.data(4)
+% 0.0977
+
+%% Nemo v1
+DamageFileName = '011_T1.nii';
+StrSave = '.';
+
+Coreg2MNI = struct('StructImageType',{},'ImageFileName',{});
+CalcSpace = 'MNI';
+NumWorkers = 1;
+dispMask = true;
+coregOnly = false;
+
+main_dir='/mnt/data/Tractograms/';
+
+
+ChaCoCalc(DamageFileName,Coreg2MNI,CalcSpace,86,StrSave,NumWorkers,dispMask,coregOnly,main_dir)
